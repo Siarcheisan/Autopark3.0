@@ -21,6 +21,7 @@ public class Menu {
 
         do {
             System.out.println("для добавления Авто - введите 1; Водителя - 2; Сохранить - 3 ");
+            System.out.println("Поиск машины по Vin - введите 4");
             choise = input.nextInt();
 
             switch (choise) {
@@ -34,8 +35,9 @@ public class Menu {
                     newAuto.setColor(Color.valueOf(input.next()));
                     System.out.println("Введите год авто:");
                     newAuto.setYear(input.nextInt());
-                    int freeIndex = autoparkVederko.getFreeIndexCar();
-                    autoparkVederko.getCars()[freeIndex] = newAuto;
+                    System.out.println("Введите Vin номер:");
+                    newAuto.setVinCod(input.next());
+                    autoparkVederko.addCar(newAuto);
                     System.out.println("Новое авто успешно добавлено!!!");
                     System.out.println("Сохранить текущий статус автопарка?");
 
@@ -49,12 +51,16 @@ public class Menu {
                     newHuman.setAge(input.nextInt());
                     System.out.println("Введите категорию прав:");
                     newHuman.setCategoryOfRights(CategoryOfRights.valueOf(input.next()));
-                    drivers[Autopark.getFreeIndexDriver(drivers)] = newHuman;
+//                    drivers[Autopark.getFreeIndexDriver(drivers)] = newHuman;
                     System.out.println("Новый водитель принят!!!");
                     break;
                 case 3:
-                    FileUtil.writeFileAuto("auto.txt", autoPark);
-                    FileUtil.writeFileDriver("drivers.txt", drivers);
+                    FileUtil.writeFileAuto("auto.txt", autoparkVederko.getCars());
+//                    FileUtil.writeFileDriver("drivers.txt", drivers);
+                case 4:
+                    System.out.println("Введите Vin:");
+                    Car foundedCar = autoparkVederko.getCarByVin(input.next());
+                    System.out.println(foundedCar.toString());
             }
         } while (choise != '0');
     }

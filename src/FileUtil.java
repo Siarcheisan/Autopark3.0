@@ -42,6 +42,7 @@ public class FileUtil {
             newTempCar.setBrand(Brand.valueOf(temp[0]));
             newTempCar.setColor(Color.valueOf(temp[1]));
             newTempCar.setYear(Integer.valueOf(temp[2]));
+            newTempCar.setVinCod(temp[3]);
             result[count] = newTempCar;
             line = reader.readLine();
             count++;

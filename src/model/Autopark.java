@@ -6,6 +6,20 @@ public class Autopark {
     private Car[] cars;
     private Driver[] drivers;
 
+    public void addCar(Car newCar) {
+        int freeIndex = this.getFreeIndexCar();
+        cars[freeIndex] = newCar;
+    }
+
+    public Car getCarByVin(String vin) {
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i] != null && cars[i].getVinCod().equals(vin)) {
+                return cars[i];
+            }
+        }
+        return null;
+    }
+
     public int getFreeIndexCar() {
         for (int i = 0; i < cars.length; i++) {
             if (cars[i] == null) {
@@ -23,9 +37,11 @@ public class Autopark {
         }
         return -1;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }

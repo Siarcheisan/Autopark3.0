@@ -52,10 +52,9 @@ public class Car {
     }
 
     public String toString() {
-        return this.getBrand() + ", " + this.getColor() + ", " + this.getYear();
+        return this.getBrand() + ", " + this.getColor() + ", " + this.getYear() + ", " + this.vinCod;
 
     }
-
 
 
 }

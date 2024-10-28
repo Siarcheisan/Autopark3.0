@@ -1,0 +1,15 @@
+model\Passenger.class
+model\Man.class
+model\Woman.class
+model\Autopark.class
+model\Car.class
+model\enums\CategoryOfRights.class
+model\enums\Color.class
+model\Driver.class
+Main.class
+model\Truck.class
+TestData.class
+model\People.class
+FileUtil.class
+Menu.class
+model\enums\Brand.class
